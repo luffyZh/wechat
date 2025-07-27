@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p class="text text1">111</p>
+  <p class="text text3">333</p>
+</body>
+<script>
+  const text3 = document.querySelector('.text3');
+  // 创建 text2 节点
+  const text2 = document.createElement('p');
+  text2.classList.add('text');
+  text2.classList.add('text2');
+  text2.innerText = '222';
+  // 插入 text2 节点到 text3 节点之前
+  text3.parentNode.insertBefore(text2, text3);
+</script>
+
+<ul id="list">
+  <li>
+    111
+    <button id="item_1">删除</button>
+  </li>
+  <li>
+    222
+    <button id="item_2">删除</button>
+  </li>
+  <li>
+    333
+    <button id="item_3">删除</button>
+  </li>
+</ul>
+<script>
+  const list = document.querySelector('#list');
+  const firstLi = list.firstElementChild;
+  const lastLi = list.lastElementChild;
+  document.querySelector('#item_1').addEventListener('click', () => {
+    firstLi.remove();
+  });
+  document.querySelector('#item_2').addEventListener('click', () => {
+    list.removeChild(firstLi);
+  });
+  document.querySelector('#item_3').addEventListener('click', () => {
+    list.removeChild(lastLi);
+  });
+</script>
+</html>
